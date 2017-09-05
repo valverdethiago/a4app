@@ -1,0 +1,39 @@
+
+  <h1>Blogger</h1>
+  <div> 
+     Name : {{blogger.name}} <br/>
+     Email : {{blogger.email}} <br/>
+     Age : {{blogger.age}} <br/>
+     <h2>Address</h2>
+     Street : {{blogger.address.street}} <br/>
+     District : {{blogger.address.district}} <br/>
+     Number : {{blogger.address._number}} <br/>
+     <h2>Hobbies</h2>
+     <form (submit)="addHobby(newHobby.value)">
+       <input type="text" #newHobby>
+
+     </form>
+     <ul>
+       <li *ngFor="let hobby of blogger.hobbies; let i = index;">
+         {{i + 1}} - {{hobby}}
+         <button (click)="removeHobby(hobby)">x</button>
+
+       </li>
+     </ul>
+
+     <table border="1">
+        <thead>
+         <td>ID</td>
+         <td>title</td>
+         <td>body</td>
+        </thead>
+        <tbody>
+        <tr *ngFor="let post of blogger.posts"> 
+          <td > {{post.id}}</td>
+          <td > {{post.title}}</td>
+          <td > {{post.body}}</td>
+        </tbody>
+     </table>
+
+  </div> 
+
